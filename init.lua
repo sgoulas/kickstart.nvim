@@ -492,6 +492,9 @@ require('lazy').setup({
       vim.keymap.set('n', '<leader>ui', function()
         require('telescope.builtin').colorscheme { enable_preview = true }
       end)
+      vim.keymap.set('n', '<leader>gs', '<cmd>Telescope git_status<cr>', {
+        desc = 'Git status (Telescope)',
+      })
       -- Slightly advanced example of overriding default behavior and theme
       vim.keymap.set('n', '<leader>/', function()
         -- You can pass additional configuration to Telescope to change the theme, layout, etc.
