@@ -317,6 +317,26 @@ require('lazy').setup({
     },
   },
 
+  -- rebind the following keybinds of neo tree to match those of telescope:
+  -- preview up / preview down
+  -- open file in vertical / horizontal split
+  {
+    'nvim-neo-tree/neo-tree.nvim',
+    opts = function(_, opts)
+      opts.window = opts.window or {}
+      opts.window.mappings = vim.tbl_extend('force', opts.window.mappings or {}, {
+        ['<C-f>'] = 'none', -- unmap default
+        ['<C-b>'] = 'none', -- unmap default
+        ['<C-d>'] = { 'scroll_preview', config = { direction = -10 } }, -- down
+        ['<C-u>'] = { 'scroll_preview', config = { direction = 10 } }, -- up
+        ['s'] = 'none', -- unmap default
+        ['S'] = 'none', -- unmap default
+        ['x'] = 'open_split', -- horizontal split
+        ['v'] = 'open_vsplit', -- vertical split
+      })
+    end,
+  },
+
   -- NOTE: Plugins can also be configured to run Lua code when they are loaded.
   --
   -- This is often very useful to both group configuration, as well as handle
