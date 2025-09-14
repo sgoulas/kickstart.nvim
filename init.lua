@@ -109,7 +109,8 @@ vim.o.mouse = 'a'
 
 -- Don't show the mode, since it's already in the status line
 vim.o.showmode = false
-
+-- force dark theme
+vim.o.background = 'dark'
 -- Sync clipboard between OS and Neovim.
 --  Schedule the setting after `UiEnter` because it can increase startup-time.
 --  Remove this option if you want your OS clipboard to remain independent.
@@ -316,7 +317,14 @@ require('lazy').setup({
       },
     },
   },
-
+  -- a plugin for highlighting colors in style files. No external dependencies means it should be fast.
+  {
+    'catgoose/nvim-colorizer.lua',
+    event = 'BufReadPre',
+    opts = {
+      -- set to setup table
+    },
+  },
   -- rebind the following keybinds of neo tree to match those of telescope:
   -- preview up / preview down
   -- open file in vertical / horizontal split
@@ -495,6 +503,7 @@ require('lazy').setup({
       vim.keymap.set('n', '<leader>gs', '<cmd>Telescope git_status<cr>', {
         desc = 'Git status (Telescope)',
       })
+      vim.keymap.set('n', '<leader>gc', '<cmd>Telescope git_bcommits<cr>', { desc = 'Git commits for current file' })
       -- Slightly advanced example of overriding default behavior and theme
       vim.keymap.set('n', '<leader>/', function()
         -- You can pass additional configuration to Telescope to change the theme, layout, etc.
@@ -952,7 +961,7 @@ require('lazy').setup({
       -- Load the colorscheme here.
       -- Like many other themes, this one has different styles, and you could load
       -- any other, such as 'tokyonight-storm', 'tokyonight-moon', or 'tokyonight-day'.
-      vim.cmd.colorscheme 'tokyonight-night'
+      vim.cmd.colorscheme 'tokyonight-storm'
     end,
   },
 
