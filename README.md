@@ -1,4 +1,4 @@
-# kickstart.nvim
+# sgoulas kickstart.nvim
 
 ## Introduction
 
