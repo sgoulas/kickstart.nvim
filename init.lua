@@ -211,6 +211,33 @@ vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper win
 vim.keymap.set('n', 'n', 'nzz')
 vim.keymap.set('n', 'N', 'Nzz')
 vim.keymap.set('n', '<leader>cp', ':let @+ = expand("%")<CR>', { desc = 'Copy file path' })
+
+-- show numbers next to each tab path
+vim.o.tabline = '%!v:lua.MyTabLine()'
+
+function _G.MyTabLine()
+  local s = ''
+  for i = 1, vim.fn.tabpagenr '$' do
+    local buflist = vim.fn.tabpagebuflist(i)
+    local winnr = vim.fn.tabpagewinnr(i)
+    local bufnr = buflist[winnr]
+    local bufname = vim.fn.fnamemodify(vim.fn.bufname(bufnr), ':t')
+    if bufname == '' then
+      bufname = '[No Name]'
+    end
+
+    if i == vim.fn.tabpagenr() then
+      s = s .. '%#TabLineSel#'
+    else
+      s = s .. '%#TabLine#'
+    end
+
+    s = s .. ' ' .. i .. ': ' .. bufname .. ' '
+  end
+  s = s .. '%#TabLineFill#'
+  return s
+end
+
 -- [[ Basic Autocommands ]]
 --  See `:help lua-guide-autocommands`
 
