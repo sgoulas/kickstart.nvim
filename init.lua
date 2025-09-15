@@ -468,7 +468,13 @@ require('lazy').setup({
         -- You can put your default mappings / updates / etc. in here
         --  All the info you're looking for is in `:help telescope.setup()`
         --
-        -- defaults = {
+        defaults = {
+          layout_config = {
+            width = 0.9, -- 90% of screen width
+            height = 0.8, -- 80% of screen height
+            preview_width = 0.5, -- 50% of window width for preview
+          },
+        },
         --   mappings = {
         --     i = { ['<c-enter>'] = 'to_fuzzy_refine' },
         --   },
