@@ -317,7 +317,43 @@ require('lazy').setup({
       },
     },
   },
-  -- a plugin for highlighting colors in style files. No external dependencies means it should be fast.
+  -- a plugin for adding a scroll bar that also tracks various code status and alerts
+  -- you can update the icons for each different status
+  {
+    'petertriho/nvim-scrollbar',
+    event = 'VimEnter',
+    opts = {
+      -- Default configuration works well, but you can customize here
+      -- See the plugin's README for all available options
+      marks = {
+        Cursor = {
+          text = '󰅂󰅂󰅂',
+          priority = 0,
+          highlight = 'Normal',
+        },
+        Error = {
+          text = { '●', '●' }, -- Circles for errors
+          priority = 2,
+          highlight = 'DiagnosticVirtualTextError',
+        },
+        Warn = {
+          text = { '▲', '▲' }, -- Triangles for warnings
+          priority = 3,
+          highlight = 'DiagnosticVirtualTextWarn',
+        },
+        Info = {
+          text = { '◯', '◯' }, -- Empty circles for info
+          priority = 4,
+          highlight = 'DiagnosticVirtualTextInfo',
+        },
+        Hint = {
+          text = { '', '' }, -- Small circles for hints
+          priority = 5,
+          highlight = 'DiagnosticVirtualTextHint',
+        },
+      },
+    },
+  }, -- a plugin for highlighting colors in style files. No external dependencies means it should be fast.
   {
     'catgoose/nvim-colorizer.lua',
     event = 'BufReadPre',
