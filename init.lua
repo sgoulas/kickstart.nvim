@@ -327,7 +327,7 @@ require('lazy').setup({
       -- See the plugin's README for all available options
       marks = {
         Cursor = {
-          text = '󰅂󰅂󰅂',
+          text = '󰅂',
           priority = 0,
           highlight = 'Normal',
         },
