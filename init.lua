@@ -500,6 +500,7 @@ require('lazy').setup({
 
       -- [[ Configure Telescope ]]
       -- See `:help telescope` and `:help telescope.setup()`
+      local actions = require 'telescope.actions'
       require('telescope').setup {
         -- You can put your default mappings / updates / etc. in here
         --  All the info you're looking for is in `:help telescope.setup()`
@@ -509,6 +510,20 @@ require('lazy').setup({
             width = 0.9, -- 90% of screen width
             height = 0.8, -- 80% of screen height
             preview_width = 0.5, -- 50% of window width for preview
+          },
+          mappings = {
+            i = {
+              ['<C-h>'] = actions.preview_scrolling_left,
+              ['<C-l>'] = actions.preview_scrolling_right,
+              ['<C-k>'] = actions.preview_scrolling_up,
+              ['<C-j>'] = actions.preview_scrolling_down,
+            },
+            n = {
+              ['<C-h>'] = actions.preview_scrolling_left,
+              ['<C-l>'] = actions.preview_scrolling_right,
+              ['<C-k>'] = actions.preview_scrolling_up,
+              ['<C-j>'] = actions.preview_scrolling_down,
+            },
           },
         },
         --   mappings = {
@@ -546,7 +561,7 @@ require('lazy').setup({
       vim.keymap.set('n', '<leader><leader>', builtin.buffers, { desc = '[ ] Find existing buffers' })
       vim.keymap.set('n', '<leader>ui', function()
         require('telescope.builtin').colorscheme { enable_preview = true }
-      end)
+      end, { desc = 'preview installed themes' })
       vim.keymap.set('n', '<leader>gs', '<cmd>Telescope git_status<cr>', {
         desc = 'Git status (Telescope)',
       })
