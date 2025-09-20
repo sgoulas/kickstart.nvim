@@ -509,7 +509,12 @@ require('lazy').setup({
           layout_config = {
             width = 0.9, -- 90% of screen width
             height = 0.8, -- 80% of screen height
-            preview_width = 0.5, -- 50% of window width for preview
+            horizontal = {
+              preview_width = 0.5, -- 50% of window width for preview
+            },
+            vertical = {
+              preview_width = 0.5, -- 50% of window width for preview
+            },
           },
           mappings = {
             i = {
