@@ -166,7 +166,8 @@ vim.o.scrolloff = 10
 -- instead raise a dialog asking if you wish to save the current file(s)
 -- See `:help 'confirm'`
 vim.o.confirm = true
-
+-- Show full diagnostic in floating window
+vim.keymap.set('n', 'gl', vim.diagnostic.open_float, { desc = 'Show diagnostic in float' })
 -- [[ Basic Keymaps ]]
 --  See `:help vim.keymap.set()`
 
@@ -855,6 +856,7 @@ require('lazy').setup({
       local ensure_installed = vim.tbl_keys(servers or {})
       vim.list_extend(ensure_installed, {
         'stylua', -- Used to format Lua code
+        'prettier', -- Used to format markdown, JSON, etc.
       })
       require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 
