@@ -372,8 +372,8 @@ require('lazy').setup({
       opts.window.mappings = vim.tbl_extend('force', opts.window.mappings or {}, {
         ['<C-f>'] = 'none', -- unmap default
         ['<C-b>'] = 'none', -- unmap default
-        ['<C-d>'] = { 'scroll_preview', config = { direction = -10 } }, -- down
-        ['<C-u>'] = { 'scroll_preview', config = { direction = 10 } }, -- up
+        ['<C-j>'] = { 'scroll_preview', config = { direction = -10 } }, -- down
+        ['<C-k>'] = { 'scroll_preview', config = { direction = 10 } }, -- up
         ['s'] = 'none', -- unmap default
         ['S'] = 'none', -- unmap default
         ['x'] = 'open_split', -- horizontal split
