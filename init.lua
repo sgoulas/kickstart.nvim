@@ -214,6 +214,10 @@ vim.keymap.set('n', 'n', 'nzz')
 vim.keymap.set('n', 'N', 'Nzz')
 vim.keymap.set('n', '<leader>cp', ':let @+ = expand("%")<CR>', { desc = 'Copy file path' })
 
+-- make it so that p pastes what you last yanked, not what you last yanked OR deleted
+vim.keymap.set('n', 'p', '"0p', { noremap = true })
+vim.keymap.set('n', 'P', '"0P', { noremap = true })
+
 -- show numbers next to each tab path
 vim.o.tabline = '%!v:lua.MyTabLine()'
 
