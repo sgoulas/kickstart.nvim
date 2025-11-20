@@ -359,6 +359,15 @@ require('lazy').setup({
       },
     },
   }, -- a plugin for highlighting colors in style files. No external dependencies means it should be fast.
+  -- a plugin that denotes client components in React applications
+  {
+    'Kenzo-Wada/boundary.nvim',
+    branch = 'release',
+    opts = {
+      auto = true, -- automatic refresh enabled by default
+      -- marker_text = "'use client'",
+    },
+  },
   {
     'catgoose/nvim-colorizer.lua',
     event = 'BufReadPre',
