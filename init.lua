@@ -1058,7 +1058,42 @@ require('lazy').setup({
       vim.cmd.colorscheme 'tokyonight-storm'
     end,
   },
-
+  -- plugin for finding and replacing text
+  {
+    'nvim-pack/nvim-spectre',
+    dependencies = { 'nvim-lua/plenary.nvim' },
+    keys = {
+      {
+        '<leader>sp',
+        function()
+          require('spectre').toggle()
+        end,
+        desc = 'Toggle Spectre',
+      },
+      {
+        '<leader>rwE', -- [r]eplace [w]ord [E]verywhere
+        function()
+          require('spectre').open_visual { select_word = true }
+        end,
+        desc = '[r]eplace [w]ord instances [E]verywhere',
+      },
+      {
+        '<leader>rwE', -- [r]eplace [w]ord [E]verywhere
+        function()
+          require('spectre').open_visual()
+        end,
+        mode = 'v',
+        desc = '[r]eplace [w]ord instances [E]verywhere',
+      },
+      {
+        '<leader>rw', -- [r]eplace [w]ord in current file
+        function()
+          require('spectre').open_file_search { select_word = true }
+        end,
+        desc = '[r]eplace [w]ord instances in current file',
+      },
+    },
+  },
   -- Highlight todo, notes, etc in comments
   { 'folke/todo-comments.nvim', event = 'VimEnter', dependencies = { 'nvim-lua/plenary.nvim' }, opts = { signs = false } },
 
