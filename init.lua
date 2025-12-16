@@ -162,6 +162,18 @@ vim.o.cursorline = true
 -- Minimal number of screen lines to keep above and below the cursor.
 vim.o.scrolloff = 10
 
+-- folding rules
+-- use a tree-sitter parser if available, otherwise fallback to syntax
+vim.api.nvim_create_autocmd({ 'FileType' }, {
+  callback = function()
+    if require('nvim-treesitter.parsers').has_parser() then
+      vim.opt.foldmethod = 'expr'
+      vim.opt.foldexpr = 'nvim_treesitter#foldexpr()'
+    else
+      vim.opt.foldmethod = 'syntax'
+    end
+  end,
+})
 -- if performing an operation that would fail due to unsaved changes in the buffer (like `:q`),
 -- instead raise a dialog asking if you wish to save the current file(s)
 -- See `:help 'confirm'`
