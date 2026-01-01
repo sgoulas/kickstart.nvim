@@ -541,16 +541,24 @@ require('lazy').setup({
           },
           mappings = {
             i = {
+              -- scroll preview
               ['<C-h>'] = actions.preview_scrolling_left,
               ['<C-l>'] = actions.preview_scrolling_right,
               ['<C-k>'] = actions.preview_scrolling_up,
               ['<C-j>'] = actions.preview_scrolling_down,
+              -- scroll results
+              ['<M-h>'] = actions.results_scrolling_left, -- Option + h (in mac: bind option to esc+ in terminal emulator settings)
+              ['<M-l>'] = actions.results_scrolling_right, -- Option + l (in mac: bind option to esc+ in terminal emulator settings)
             },
             n = {
+              -- scroll preview
               ['<C-h>'] = actions.preview_scrolling_left,
               ['<C-l>'] = actions.preview_scrolling_right,
               ['<C-k>'] = actions.preview_scrolling_up,
               ['<C-j>'] = actions.preview_scrolling_down,
+              -- scroll results
+              ['<M-h>'] = actions.results_scrolling_left, -- Right Option + h (in mac: bind option to esc+ in terminal emulator settings)
+              ['<M-l>'] = actions.results_scrolling_right, -- Right Option + l (in mac: bind option to esc+ in terminal emulator settings)
             },
           },
         },
