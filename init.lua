@@ -1077,6 +1077,16 @@ require('lazy').setup({
       vim.cmd.colorscheme 'tokyonight-storm'
     end,
   },
+  -- plugin for taking code screenshots
+  -- select code with visual mode and run the :CarbonNow command
+  -- or vim.keymap.set("v", "<leader>cn", ":CarbonNow<CR>", { silent = true })
+  {
+    'ellisonleao/carbon-now.nvim',
+    lazy = true,
+    cmd = 'CarbonNow',
+    ---@param opts cn.ConfigSchema
+    opts = { [[ your custom config here ]] },
+  },
   -- plugin for finding and replacing text
   {
     'nvim-pack/nvim-spectre',
