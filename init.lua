@@ -224,6 +224,8 @@ vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper win
 
 -- personal keybinds
 
+-- while in visual mode, create a code snippet
+vim.keymap.set('v', '<leader>cn', ':CarbonNow<CR>', { silent = true })
 -- center line to middle of the screen after each search jump
 vim.keymap.set('n', 'n', 'nzz')
 vim.keymap.set('n', 'N', 'Nzz')
