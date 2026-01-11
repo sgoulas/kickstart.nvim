@@ -228,6 +228,9 @@ vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper win
 vim.keymap.set('n', 'n', 'nzz')
 vim.keymap.set('n', 'N', 'Nzz')
 vim.keymap.set('n', '<leader>cp', ':let @+ = expand("%")<CR>', { desc = 'Copy file path' })
+-- while having a selection highlighted in visual mode, paste over it and preserve what's in the default register
+-- rather than replacing it with the overwritten value.
+vim.keymap.set('x', '<leader>p', '"_dP', { desc = 'Paste without yanking' })
 
 -- show numbers next to each tab path
 vim.o.tabline = '%!v:lua.MyTabLine()'
