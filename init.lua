@@ -224,6 +224,17 @@ vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper win
 
 -- personal keybinds
 
+-- remove these if no longer needed in the future
+-- Add blank line below without entering insert mode
+-- vim.keymap.set('n', '<leader>o', 'o<Esc>', { desc = 'Add blank line below' })
+-- Add blank line above without entering insert mode
+-- vim.keymap.set('n', '<leader>O', 'O<Esc>', { desc = 'Add blank line above' })
+
+-- Jump navigation with leader key
+vim.keymap.set('n', '<leader>]', '<C-]>', { desc = 'Jump to definition' })
+vim.keymap.set('n', '<leader>o', '<C-o>', { desc = 'Jump back' })
+vim.keymap.set('n', '<leader>i', '<C-i>', { desc = 'Jump forward' })
+
 -- while in visual mode, create a code snippet
 vim.keymap.set('v', '<leader>cn', ':CarbonNow<CR>', { silent = true })
 -- center line to middle of the screen after each search jump
@@ -619,10 +630,6 @@ require('lazy').setup({
           previewer = false,
         })
       end, { desc = '[/] Fuzzily search in current buffer' })
-      -- Add blank line below without entering insert mode
-      vim.keymap.set('n', '<leader>o', 'o<Esc>', { desc = 'Add blank line below' })
-      -- Add blank line above without entering insert mode
-      vim.keymap.set('n', '<leader>O', 'O<Esc>', { desc = 'Add blank line above' })
 
       -- It's also possible to pass additional configuration options.
       --  See `:help telescope.builtin.live_grep()` for information about particular keys
