@@ -8,6 +8,8 @@
 > :source $MYVIMRC (auto complete supported)
 > however lazy doesn't support live reloading, because it's lazy.
 
+> With regards to modular plugin folders: When you add `opts = {}`, lazy.nvim automatically calls `require('<pluginName>').setup({})`
+
 # Vim & Nvim Notes
 
 ## Todo
