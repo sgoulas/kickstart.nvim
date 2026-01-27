@@ -350,6 +350,9 @@ keep in mind that there is a small performance hit when using this feature https
 
 ### Working with Code
 
+- Comment line: `gcc`
+- Comment block: `gc` while having selected multiple lines in visual mode.
+- Comment block: `gb` followed by range. E.g `gb5j`.
 - Accept autocomplete: `TAB` (was `C-y`)
 - Dismiss autocomplete: `C-e`
 - Move up/down in autocomplete: `C-u`, `C-d`

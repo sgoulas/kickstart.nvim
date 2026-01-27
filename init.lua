@@ -349,6 +349,31 @@ require('lazy').setup({
       },
     },
   },
+  {
+    'numToStr/Comment.nvim',
+    event = 'VeryLazy',
+    opts = {
+      -- Add a space between comment and the line
+      padding = true,
+      -- Whether the cursor should stay at its position
+      sticky = true,
+      -- Lines to be ignored while (un)comment
+      ignore = nil,
+      -- LHS of toggle mappings in NORMAL mode
+      toggler = {
+        line = 'gcc', -- Line-comment toggle keymap
+        block = 'gbc', -- Block-comment toggle keymap
+      },
+      -- LHS of operator-pending mappings in NORMAL and VISUAL mode
+      opleader = {
+        line = 'gc', -- Line-comment keymap
+        block = 'gb', -- Block-comment keymap
+      },
+    },
+    config = function(_, opts)
+      require('Comment').setup(opts)
+    end,
+  },
   -- a plugin for adding a scroll bar that also tracks various code status and alerts
   -- you can update the icons for each different status
   {
