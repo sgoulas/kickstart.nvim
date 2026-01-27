@@ -1,5 +1,3 @@
--- You can add your own plugins here or in other files in this directory!
---  I promise not to create any merge conflicts in this directory :)
---
--- See the kickstart.nvim README for more information
+-- Plugin files are auto-imported by lazy.nvim via { import = 'custom.plugins' }
+-- Each plugin has its own file in this directory for maximum modularity
 return {}
