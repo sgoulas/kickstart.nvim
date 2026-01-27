@@ -2,6 +2,11 @@
 
 > Many key binds and commands in this document assume you are using Nvim and popular plugins (such as Telescope, fzf, neo-tree, gitsigns, and LSP integrations).  
 > Classic Vim may not support all features or key binds out of the box.
+> A common workflow for reloading nvim configuration without stepping out of nvim is:
+> leader sn to open nvim config files
+> apply changes, save and return to previous file
+> :source $MYVIMRC (auto complete supported)
+> however lazy doesn't support live reloading, because it's lazy.
 
 # Vim & Nvim Notes
 

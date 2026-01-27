@@ -1082,11 +1082,32 @@ require('lazy').setup({
           comments = { italic = false }, -- Disable italics in comments
         },
       }
+    end,
+  },
+  -- Color scheme plugins
+  {
+    'navarasu/onedark.nvim',
+    priority = 1000,
+    config = function()
+      require('onedark').setup {
+        style = 'dark', -- Options: 'dark', 'darker', 'cool', 'deep', 'warm', 'warmer'
+        transparent = false,
+        term_colors = true,
+        ending_tildes = false,
+        cmp_itemkind_reverse = false,
 
-      -- Load the colorscheme here.
-      -- Like many other themes, this one has different styles, and you could load
-      -- any other, such as 'tokyonight-storm', 'tokyonight-moon', or 'tokyonight-day'.
-      vim.cmd.colorscheme 'tokyonight-storm'
+        -- Change code style
+        code_style = {
+          comments = 'none', -- Disable italics in comments
+          keywords = 'none',
+          functions = 'none',
+          strings = 'none',
+          variables = 'none',
+        },
+      }
+
+      -- Set OneDark as the default colorscheme
+      vim.cmd.colorscheme 'onedark'
     end,
   },
   -- plugin for taking code screenshots
