@@ -133,6 +133,7 @@ const result = calculateTotal(price, tax);
 
 ### Copying Text
 
+- `y%`: yank up to matching ()[]{}.
 - `yw`: yank current word / useful alternatives: `ye` --> copy until end of current word.
 - `yy`: yank current line
 - `v` → move → `y`: select and yank specific parts
@@ -352,6 +353,7 @@ keep in mind that there is a small performance hit when using this feature https
 
 ### Working with Code
 
+- `<leader>q`: opens diagnostics, can navigate through them and press enter to travel to them.
 - Comment line: `gcc`
 - Comment block: `gc` while having selected multiple lines in visual mode.
 - Comment block: `gb` followed by range. E.g `gb5j`.
