@@ -10,6 +10,9 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 })
 
 -- Folding rules: use treesitter if available, otherwise fallback to syntax
+-- foldlevelstart=99 ensures all folds are open by default
+vim.opt.foldlevelstart = 99
+
 vim.api.nvim_create_autocmd({ 'FileType' }, {
     callback = function()
         if require('nvim-treesitter.parsers').has_parser() then
