@@ -14,8 +14,7 @@
 
 ## Todo
 
-- test leap plugin https://codeberg.org/andyg/leap.nvim
-- chance neo tree open horizontal to another key bind, maybe X, so that I can cut again.
+- change neo tree open horizontal to another key bind, maybe X, so that I can cut again.
 - add `:help motion.tx` somewhere in this file.
 
 ---
@@ -49,6 +48,7 @@ const result = calculateTotal(price, tax);
 
 ### Navigating in a File
 
+- `s{char}{char}` + `flag` jump anywhere with leap.nvim plugin.
 - `H`, `M`, `L`: go to high, middle, low position in the screen
 - `gm`: go to the middle of the current line (may need virtual edit)
 - `ctrl-F` / `ctrl-B`: navigate forwards / backwards
