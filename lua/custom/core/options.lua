@@ -78,9 +78,18 @@ function _G.MyTabLine()
         local buflist = vim.fn.tabpagebuflist(i)
         local winnr = vim.fn.tabpagewinnr(i)
         local bufnr = buflist[winnr]
-        local bufname = vim.fn.fnamemodify(vim.fn.bufname(bufnr), ':t')
-        if bufname == '' then
-            bufname = '[No Name]'
+        local fullpath = vim.fn.bufname(bufnr)
+        local filename = vim.fn.fnamemodify(fullpath, ':t')
+        local parent = vim.fn.fnamemodify(fullpath, ':h:t')
+
+        local tabname
+        if filename == '' then
+            tabname = '[No Name]'
+        elseif filename:match('^index%.') and parent ~= '' and parent ~= '.' then
+            -- For files named "index.*", show parent/filename
+            tabname = parent .. '/' .. filename
+        else
+            tabname = filename
         end
 
         if i == vim.fn.tabpagenr() then
@@ -89,7 +98,7 @@ function _G.MyTabLine()
             s = s .. '%#TabLine#'
         end
 
-        s = s .. ' ' .. i .. ': ' .. bufname .. ' '
+        s = s .. ' ' .. i .. ': ' .. tabname .. ' '
     end
     s = s .. '%#TabLineFill#'
     return s

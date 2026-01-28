@@ -14,10 +14,9 @@
 
 ## Todo
 
+- test leap plugin https://codeberg.org/andyg/leap.nvim
 - chance neo tree open horizontal to another key bind, maybe X, so that I can cut again.
 - add `:help motion.tx` somewhere in this file.
-
-I edited `~/.vimrc` to change some stuff.
 
 ---
 
