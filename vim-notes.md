@@ -63,6 +63,7 @@ const result = calculateTotal(price, tax);
 
 ### Navigating Between Files & Tabs
 
+- harpoon2 plugin, check key mappings for `harpoon`
 - `<n>gt`: go to specific tab number
 - `gt`: next tab
 - `gT`: previous tab
