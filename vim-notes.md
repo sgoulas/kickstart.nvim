@@ -400,6 +400,7 @@ keep in mind that there is a small performance hit when using this feature https
   - `gd` open diff view
   - `gD` close diff view
 - tab while in diff view to cycle through commits
+- shift-tag to cycle upwards
 - q while in diff view to quit
 
 ## Neovim
