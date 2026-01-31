@@ -386,15 +386,21 @@ keep in mind that there is a small performance hit when using this feature https
 - `zM` close all folds
 - `zm` / `zr` fold more fold less, this is for "bird's eye overview" of the whole file.
 
-### Gitsigns Keybinds
+### Working with Git
 
 - `<leader>tb`: toggle blame
 - `]c` / `[c`: jump to next/previous git hunk
 - `<leader>hp`: preview hunk
-- `<leader>gc`: show commits of current file
 - `<leader>gs`: git status
 - `<leader>hr`: revert current hunk
 - `<leader>hd`: preview changes against index
+- <leader>:
+  - `gh` file history
+  - `gH` workspace history
+  - `gd` open diff view
+  - `gD` close diff view
+- tab while in diff view to cycle through commits
+- q while in diff view to quit
 
 ## Neovim
 
