@@ -1,4 +1,58 @@
 -- Git diff and conflict resolution with side-by-side view
+
+-- Helper function to open the PR for a given commit SHA
+local function open_pr_for_commit(sha)
+    if not sha or sha == '' then
+        vim.notify('No commit SHA found', vim.log.levels.WARN)
+        return
+    end
+
+    -- Use gh CLI to find the PR that introduced this commit
+    local cmd = string.format(
+        "gh pr list --search '%s' --state merged --json url --jq '.[0].url'",
+        sha
+    )
+
+    vim.fn.jobstart(cmd, {
+        stdout_buffered = true,
+        on_stdout = function(_, data)
+            local url = data[1]
+            if url and url ~= '' then
+                vim.ui.open(url)
+                vim.notify('Opening PR: ' .. url, vim.log.levels.INFO)
+            else
+                -- Try searching in all states (including open PRs)
+                local fallback_cmd = string.format(
+                    "gh pr list --search '%s' --state all --json url --jq '.[0].url'",
+                    sha
+                )
+                vim.fn.jobstart(fallback_cmd, {
+                    stdout_buffered = true,
+                    on_stdout = function(_, fallback_data)
+                        local fallback_url = fallback_data[1]
+                        if fallback_url and fallback_url ~= '' then
+                            vim.ui.open(fallback_url)
+                            vim.notify('Opening PR: ' .. fallback_url, vim.log.levels.INFO)
+                        else
+                            vim.notify('No PR found for commit: ' .. sha, vim.log.levels.WARN)
+                        end
+                    end,
+                    on_stderr = function(_, err_data)
+                        if err_data and err_data[1] and err_data[1] ~= '' then
+                            vim.notify('Error: ' .. table.concat(err_data, '\n'), vim.log.levels.ERROR)
+                        end
+                    end,
+                })
+            end
+        end,
+        on_stderr = function(_, data)
+            if data and data[1] and data[1] ~= '' then
+                vim.notify('Error: ' .. table.concat(data, '\n'), vim.log.levels.ERROR)
+            end
+        end,
+    })
+end
+
 return {
     'sindrets/diffview.nvim',
     dependencies = { 'nvim-lua/plenary.nvim' },
@@ -49,6 +103,43 @@ return {
             },
             file_history_panel = {
                 { 'n', 'q', '<cmd>DiffviewClose<cr>', { desc = 'Close Diffview' } },
+                {
+                    'n',
+                    '<leader>gp',
+                    function()
+                        local actions = require('diffview.actions')
+                        -- Get the current file history view
+                        local view = require('diffview.lib').get_current_view()
+                        if not view then
+                            vim.notify('No diffview found', vim.log.levels.WARN)
+                            return
+                        end
+
+                        -- Get the file history panel
+                        local panel = view.panel
+                        if not panel then
+                            vim.notify('No panel found', vim.log.levels.WARN)
+                            return
+                        end
+
+                        -- Get the current entry (selected commit)
+                        local entry = panel:get_item_at_cursor()
+                        if not entry then
+                            vim.notify('No entry selected', vim.log.levels.WARN)
+                            return
+                        end
+
+                        -- Extract the commit SHA
+                        local sha = entry.commit and entry.commit.hash
+                        if not sha then
+                            vim.notify('Could not get commit SHA', vim.log.levels.WARN)
+                            return
+                        end
+
+                        open_pr_for_commit(sha)
+                    end,
+                    { desc = 'Open PR for this commit' },
+                },
             },
         },
     },
