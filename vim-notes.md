@@ -221,7 +221,6 @@ const result = calculateTotal(price, tax);
 - `ce`: replace from cursor to end of word
 - `c$` or `C`: replace from cursor to end of line
 
-
 ## Modes & Visual Mode
 
 ### Modes
@@ -255,10 +254,10 @@ const result = calculateTotal(price, tax);
 
 ### Macros
 
-- Record macro: `q` + [register] (e.g. `qw` for register `w`)
+- Record macro: `q` + [register] (e.g. `qw` for using register `w`)
 - Perform actions, then `q` to stop recording
 - Replay macro: `@w`
-- Replay macro n times: `<n>@w`
+- Replay macro n times: `<n>@w`.
 - Macros are stored in registers and live for the session
 
 ## Files & Buffers
