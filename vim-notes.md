@@ -60,6 +60,7 @@ const result = calculateTotal(price, tax);
 - `zz`: center current line on screen (useful after jumps) (baked inside n/N)
 - `%`: while on a bracket/parenthesis, jump to matching pair
 - `}` / `{` move 1 paragraph forward. Works nicely with code that is separated by blank lines. Works with prefixed `count` as well, e.g `5}` jumps 5 paragraphs forward.
+- `g;` / `g,` go to previous / next change
 
 ### Navigating Between Files & Tabs
 
@@ -140,6 +141,7 @@ const result = calculateTotal(price, tax);
 - `p`: put yanked/copied/deleted text AFTER the cursor
 - `P`: put yanked/copied/deleted text AFTER the cursor
 - `V`: line-wise visual mode (e.g. `V2j` yanks current and next two lines)
+  - `gv` reselect last visual selection
 - `yiw`: yank entire word even if cursor is in the middle
 - `yiW`: like `yiw` but yanks until it finds whitespaces.
 - `yi(`, `yi{`, `yi[` : yank everything _inside_ the first matching pair (parentheses, braces, brackets)
