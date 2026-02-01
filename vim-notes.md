@@ -155,9 +155,14 @@ const result = calculateTotal(price, tax);
 - `cc`: replace whole line
 - `ce`: replace from cursor to end of word
 - `c$` or `C`: replace from cursor to end of line
-- `:s/e/ass`: replace first `e` with `ass` in line
-- `:s/e/ass/g`: replace all `e` with `ass` in line
-- `:%s/e/ass/g`: replace all `e` with `ass` in file
+- `:%s/word_1/word2/<flags>`: replace word_1 with word_2
+  - flags can be any combination of:
+    - g - global
+    - c - confirm
+    - i - case insensitive
+    - I - case sensitive
+    - n - count only, don't replace, just count (e.g `:s/-//n` counts occurrences of "-")
+  - no flags means: only first occurrence in each line, no confirmation prompt, case sensitive
 
 ### Moving text
 
@@ -215,10 +220,7 @@ const result = calculateTotal(price, tax);
 - `cc`: replace whole line
 - `ce`: replace from cursor to end of word
 - `c$` or `C`: replace from cursor to end of line
-- spectre plugin
-  - `<leader>sp`: toggle spectre
-  - `<leader>rw`: replace word in current file
-  - `<leader>rwE`: replace word everywhere
+
 
 ## Modes & Visual Mode
 
