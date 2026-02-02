@@ -19,7 +19,12 @@ return {
 
                 map('grn', vim.lsp.buf.rename, '[R]e[n]ame')
                 map('gra', vim.lsp.buf.code_action, '[G]oto Code [A]ction', { 'n', 'x' })
-                map('grr', require('telescope.builtin').lsp_references, '[G]oto [R]eferences')
+                map('grr', function()
+                    require('telescope.builtin').lsp_references({
+                        file_ignore_patterns = { '%.test%.', '%.spec%.', '_test%.', '_spec%.' },
+                    })
+                end, '[G]oto [R]eferences (no tests)')
+                map('grR', require('telescope.builtin').lsp_references, '[G]oto [R]eferences (all)')
                 map('gri', require('telescope.builtin').lsp_implementations, '[G]oto [I]mplementation')
                 map('grd', require('telescope.builtin').lsp_definitions, '[G]oto [D]efinition')
                 map('grD', vim.lsp.buf.declaration, '[G]oto [D]eclaration')
