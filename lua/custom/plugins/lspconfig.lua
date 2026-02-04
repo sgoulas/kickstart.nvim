@@ -109,6 +109,7 @@ return {
 
         local servers = {
             pyright = {},
+            somesass_ls = {},
             lua_ls = {
                 settings = {
                     Lua = {
