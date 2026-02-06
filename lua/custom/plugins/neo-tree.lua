@@ -13,6 +13,24 @@ return {
     },
     config = function()
         require('neo-tree').setup {
+            default_component_configs = {
+                file_size = {
+                    enabled = false,
+                },
+                git_status = {
+                    symbols = {
+                        added     = "A",
+                        modified  = "M",
+                        deleted   = "D",
+                        renamed   = "R",
+                        untracked = "?",
+                        ignored   = "!",
+                        unstaged  = "U",
+                        staged    = "S",
+                        conflict  = "C",
+                    },
+                },
+            },
             filesystem = {
                 filtered_items = {
                     visible = true,
