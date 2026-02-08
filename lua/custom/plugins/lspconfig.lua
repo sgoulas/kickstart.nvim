@@ -30,7 +30,6 @@ return {
                 map('grD', vim.lsp.buf.declaration, '[G]oto [D]eclaration')
                 map('gs', require('telescope.builtin').lsp_document_symbols, 'Open Document Symbols')
                 map('gS', require('telescope.builtin').lsp_dynamic_workspace_symbols, 'Open Workspace Symbols')
-                map('grt', require('telescope.builtin').lsp_type_definitions, '[G]oto [T]ype Definition')
 
                 -- Open definition in a new tab
                 map('<leader>gt', function()

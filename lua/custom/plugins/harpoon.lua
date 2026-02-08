@@ -46,6 +46,10 @@ return {
             harpoon:list():remove()
         end, { desc = 'Harpoon: [R]emove [H]arpoon' })
 
+        vim.keymap.set('n', '<leader>rH', function()
+            harpoon:list():clear()
+        end, { desc = 'Harpoon: [R]emove all [H]arpoons' })
+
         -- Quick select harpooned files
         vim.keymap.set('n', '<leader>1', function()
             harpoon:list():select(1)
