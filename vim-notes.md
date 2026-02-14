@@ -65,12 +65,17 @@ const result = calculateTotal(price, tax);
 ### Navigating Between Files & Tabs
 
 - harpoon2 plugin, check key mappings for `harpoon`
+- marks
+  - `m<lower case letter>` add mark to current file
+  - `m<capital case letter>` add mark that persists between files and nvim sessions (even when on different tabs)
+  - open marks with `'` and navigate pressing the appropriate char.
+  - `:delmarks!` delete all marks
 - `<n>gt`: go to specific tab number
 - `gt`: next tab
 - `gT`: previous tab
 - `:tab sb <num>` or `:tab sb <buffer-name>`: open buffer as tab
 - Rearrange tabs with mouse
-- `C-o` / `C-i`: jump back/forward (jump points)
+- `C-o` / `C-i`: jump back/forward (jump points) (remapped to `leader-o` / `leader-i`)
 - Reopen closed tab if buffer exists: `:ls`, `:tabnew | b<n>`, or `<leader><leader> C-t`
 
 ### Opening URLs
