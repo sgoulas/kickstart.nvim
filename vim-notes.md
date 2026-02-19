@@ -64,6 +64,7 @@ const result = calculateTotal(price, tax);
 
 ### Navigating Between Files & Tabs
 
+- `<leader>[dvth]`: open definition in new [v]irtual split, [h]orizontal split or [t]ab
 - harpoon2 plugin, check key mappings for `harpoon`
 - marks
   - `m<lower case letter>` add mark to current file

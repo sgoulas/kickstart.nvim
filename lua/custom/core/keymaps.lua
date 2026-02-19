@@ -43,3 +43,8 @@ vim.keymap.set('x', '<leader>p', '"_dP', { desc = 'Paste without yanking' })
 -- leap mappings
 vim.keymap.set({ 'n', 'x', 'o' }, 's', '<Plug>(leap)')
 vim.keymap.set('n', 'S', '<Plug>(leap-from-window)')
+
+-- Go to definition in splits/tabs
+vim.keymap.set('n', '<leader>dv', '<cmd>vsplit | lua vim.lsp.buf.definition()<CR>', { desc = '[d]efinition in [v]ertical split' })
+vim.keymap.set('n', '<leader>dh', '<cmd>split | lua vim.lsp.buf.definition()<CR>', { desc = '[d]efinition in [h]orizontal split' })
+vim.keymap.set('n', '<leader>dt', '<cmd>tab split | lua vim.lsp.buf.definition()<CR>', { desc = '[d]efinition in new [t]ab' })
