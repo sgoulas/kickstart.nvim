@@ -14,6 +14,7 @@
 
 ## Todo
 
+- check vim motions in zed, this is probably the long term play. Probably
 - change neo tree open horizontal to another key bind, maybe X, so that I can cut again.
 - add `:help motion.tx` somewhere in this file.
 
