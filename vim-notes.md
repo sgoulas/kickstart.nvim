@@ -61,6 +61,7 @@ const result = calculateTotal(price, tax);
 - `zz`: center current line on screen (useful after jumps) (baked inside n/N)
 - `%`: while on a bracket/parenthesis, jump to matching pair
 - `}` / `{` move 1 paragraph forward. Works nicely with code that is separated by blank lines. Works with prefixed `count` as well, e.g `5}` jumps 5 paragraphs forward.
+- `)` / `(` navigate sentences.
 - `g;` / `g,` go to previous / next change
 
 ### Navigating Between Files & Tabs
