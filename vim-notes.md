@@ -15,8 +15,7 @@
 ## Todo
 
 - check vim motions in zed, this is probably the long term play. Probably
-- change neo tree open horizontal to another key bind, maybe X, so that I can cut again.
-- add `:help motion.tx` somewhere in this file.
+- add `:help motion.tx` somewhere in this file, also https://github.com/nvim-neo-tree/neo-tree.nvim/blob/main/doc/neo-tree.txt
 
 ---
 
@@ -278,12 +277,12 @@ const result = calculateTotal(price, tax);
 - In Vim: `:e <file>` opens file in new buffer
 - `:split <file>` / `:vsplit <file>`: open file in split view
 - With telescope:
-  - `C-x`: open horizontal split
+  - `C-x`: open horizontal split (`C-h` is used for scrolling left in the preview window)
   - `C-v`: open vertical split
   - `C-t`: open in new tab
 - With neo-tree:
-  - `x`: horizontal split
-  - `v`: vertical split
+  - `S`: horizontal split
+  - `s`: vertical split
   - `t`: tab
   - `Enter`: open in current window
 
