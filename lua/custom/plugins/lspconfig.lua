@@ -109,6 +109,17 @@ return {
         local servers = {
             pyright = {},
             somesass_ls = {},
+            ts_ls = {
+                filetypes = {
+                    'javascript',
+                    'javascriptreact',
+                    'javascript.jsx',
+                    'typescript',
+                    'typescriptreact',
+                    'typescript.tsx',
+                    'mjs',
+                },
+            },
             lua_ls = {
                 settings = {
                     Lua = {
@@ -119,6 +130,13 @@ return {
                 },
             },
         }
+
+        -- Register mjs filetype
+        vim.filetype.add({
+            extension = {
+                mjs = 'javascript',
+            },
+        })
 
         local ensure_installed = vim.tbl_keys(servers or {})
         vim.list_extend(ensure_installed, {
