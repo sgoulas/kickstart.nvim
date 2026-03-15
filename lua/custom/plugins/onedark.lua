@@ -1,4 +1,4 @@
--- OneDark colorscheme (active)
+-- OneDark colorscheme
 return {
     'navarasu/onedark.nvim',
     priority = 1000,
@@ -17,6 +17,5 @@ return {
                 variables = 'none',
             },
         }
-        vim.cmd.colorscheme 'onedark'
     end,
 }
