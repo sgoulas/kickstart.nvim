@@ -157,10 +157,20 @@ const result = calculateTotal(price, tax);
 - By default when yanking then deleting something, what you delete overwrites the buffer that contains what you copied. `"0p` makes it so that you paste the thing you last yanked instead of yanked _or_ deleted. I can opt to change that behavior by mapping `p` to `"0p` and `P` to `"0P`.
 - `yf` / `yt` yank until character including / excluding the character.
 
+### Searching Text
+
+- `/`: search forwards
+- `?`: search backwards
+- `n` / `N`: next/previous match (`n` for `/` is down, for `?` is up)
+- `<leader>/`: fzf in current file
+- `<leader>s/`: fzf in open files
+- `<leader>sw`: search word under cursor across project
+- `*`: highlight all occurrences of word under cursor
+
 ### Replacing Text
 
 - `r<x>`: replace character under cursor with `<x>`
-- `R`: enter replace mode, typing replaces characters
+- `R`: enter replace mode, typing replaces characters until you press ESC.
 - `cc`: replace whole line
 - `ce`: replace from cursor to end of word
 - `c$` or `C`: replace from cursor to end of line
@@ -176,6 +186,8 @@ const result = calculateTotal(price, tax);
 ### Moving text
 
 - `>` / `<` followed by `hjkl` moves text. For example `>l` moves text to the right. You can be anywhere on the line.
+- `>>` / `<<` to quickly indent towards that direction instead of having to follow up with `hjkl` like the previous command.
+- `J` / `gJ` join the current line with the line below, separated by a single / no white space.
 
 ### Working with Multiple Lines
 
@@ -209,26 +221,6 @@ const result = calculateTotal(price, tax);
 
 - `:bd`: delete/close current buffer
 - `:bd <n>`: delete buffer number `<n>` (can specify multiple buffers)
-
-## Searching & Replacing
-
-### Searching Text
-
-- `/`: search forwards
-- `?`: search backwards
-- `n` / `N`: next/previous match (`n` for `/` is down, for `?` is up)
-- `<leader>/`: fzf in current file
-- `<leader>s/`: fzf in open files
-- `<leader>sw`: search word under cursor across project
-- `*`: highlight all occurrences of word under cursor
-
-### Replacing Text
-
-- `r<x>`: replace character under cursor with `<x>`
-- `R`: enter replace mode, typing replaces characters
-- `cc`: replace whole line
-- `ce`: replace from cursor to end of word
-- `c$` or `C`: replace from cursor to end of line
 
 ## Modes & Visual Mode
 
@@ -305,17 +297,17 @@ const result = calculateTotal(price, tax);
 - `:wa`: save all buffers
 - `:wqa`: save all and quit
 
-### Updating Vim configurationuration
+### Updating Vim configuration
 
-- configurationuration file: `~/.vimrc`
-- Update configurationuration in Vim: `:source ~/.vimrc` or `:so ~/.vimrc`
+- configuration file: `~/.vimrc`
+- Update configuration in Vim: `:source ~/.vimrc` or `:so ~/.vimrc`
 - Example mapping: `inoremap jk <Esc>` (map `jk` to escape in insert mode)
 
-## configurationuration & UI
+## configuration & UI
 
-### configurationuration
+### configuration
 
-- Vim configurationuration file: `~/.vimrc`
+- Vim configuration file: `~/.vimrc`
 - Update configuration in Vim: `:source ~/.vimrc` or `:so ~/.vimrc`
 - Example mapping: `inoremap jk <Esc>` (map `jk` to escape in insert mode)
 - For Neovim: configuration file is `~/.configuration/nvim/init.lua`
@@ -346,7 +338,7 @@ const result = calculateTotal(price, tax);
 - `zg` add word to dictionary.
 - `zug` remove word from dictionary.
 
-I can enable spell checking for different languages by adding the following lines in my lua configurationuration:
+I can enable spell checking for different languages by adding the following lines in my lua configuration:
 
 ```lua
 vim.opt.spell = true
