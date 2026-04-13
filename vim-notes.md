@@ -212,6 +212,7 @@ const result = calculateTotal(price, tax);
 ### Deleting Files
 
 - `:!rm %`: delete the current file (buffer remains open)
+- `ggdG` same vibe
 
 ### Visual Mode Deleting
 
