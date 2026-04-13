@@ -40,6 +40,23 @@ vim.keymap.set('n', '<leader>cp', ':let @+ = expand("%")<CR>', { desc = 'Copy fi
 -- Paste without yanking in visual mode
 vim.keymap.set('x', '<leader>p', '"_dP', { desc = 'Paste without yanking' })
 
+-- LSP hover with red border
+vim.keymap.set('n', 'K', function()
+    vim.lsp.buf.hover({
+        border = {
+            { '╭', 'RedBorder' },
+            { '─', 'RedBorder' },
+            { '╮', 'RedBorder' },
+            { '│', 'RedBorder' },
+            { '╯', 'RedBorder' },
+            { '─', 'RedBorder' },
+            { '╰', 'RedBorder' },
+            { '│', 'RedBorder' },
+        },
+    })
+end, { desc = 'LSP Hover' })
+vim.api.nvim_set_hl(0, 'RedBorder', { fg = '#ff0000' })
+
 -- leap mappings
 vim.keymap.set({ 'n', 'x', 'o' }, 's', '<Plug>(leap)')
 vim.keymap.set('n', 'S', '<Plug>(leap-from-window)')
