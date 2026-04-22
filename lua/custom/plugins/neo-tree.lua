@@ -38,6 +38,11 @@ return {
         window = {
           mappings = {
             ['\\'] = 'close_window',
+            ['gx'] = function(state)
+              local node = state.tree:get_node()
+              local path = node:get_id()
+              vim.fn.system({ 'open', '-R', path })
+            end,
           },
         },
         follow_current_file = {
