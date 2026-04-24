@@ -406,6 +406,11 @@ keep in mind that there is a small performance hit when using this feature https
 - `<leader>lg` open lazygit
 - `<leader>la` lazygit log view (commit history)
 - `<leader>lf` lazygit log for current file
+- `C-/` toggle floating terminal (session persists when hidden)
+  - double `Esc` to exit terminal insert mode back to normal mode
+  - `gf` in normal mode to open the file under cursor in the editor
+  - `q` in normal mode to hide the terminal
+  - prefix with a number to open multiple terminals: `2 C-/` opens terminal 2, `3 C-/` opens terminal 3, etc.
 - tab while in diff view to cycle through commits
 - shift-tag to cycle upwards
 - q while in diff view to quit
