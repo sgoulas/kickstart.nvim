@@ -403,6 +403,9 @@ keep in mind that there is a small performance hit when using this feature https
   - `gd` open diff view
   - `gD` close diff view
   - `gp` open the PR that introduced the commit the cursor is currently over
+- `<leader>lg` open lazygit
+- `<leader>la` lazygit log view (commit history)
+- `<leader>lf` lazygit log for current file
 - tab while in diff view to cycle through commits
 - shift-tag to cycle upwards
 - q while in diff view to quit
