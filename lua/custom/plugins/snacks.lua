@@ -4,6 +4,7 @@ return {
   lazy = false,
   ---@type snacks.Config
   opts = {
+    bigfile = {},
     image = {},
     input = {},
     lazygit = {},
