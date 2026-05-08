@@ -1,30 +1,7 @@
--- Treesitter - Syntax highlighting and code parsing
+-- Treesitter - Neovim 0.12 has native treesitter support
+-- Highlighting and indent are enabled by default
+-- Keeping plugin only for parser installation via :TSInstall / :TSUpdate
 return {
-  'nvim-treesitter/nvim-treesitter',
-  build = ':TSUpdate',
-  main = 'nvim-treesitter.configs',
-  opts = {
-    ensure_installed = {
-      'bash',
-      'c',
-      'diff',
-      'html',
-      'javascript',
-      'lua',
-      'luadoc',
-      'markdown',
-      'markdown_inline',
-      'query',
-      'tsx',
-      'typescript',
-      'vim',
-      'vimdoc',
-    },
-    auto_install = true,
-    highlight = {
-      enable = true,
-      additional_vim_regex_highlighting = { 'ruby' },
-    },
-    indent = { enable = true, disable = { 'ruby' } },
-  },
+    'nvim-treesitter/nvim-treesitter',
+    build = ':TSUpdate',
 }
