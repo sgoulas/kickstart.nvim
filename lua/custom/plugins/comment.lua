@@ -1,32 +1,20 @@
--- Comment.nvim - Toggle comments with JSX/TSX support
+-- JSX/TSX-aware commenting via native Neovim gc/gcc (0.10+)
 return {
-    'numToStr/Comment.nvim',
+    'JoosepAlviste/nvim-ts-context-commentstring',
     event = 'VeryLazy',
-    dependencies = {
-        'JoosepAlviste/nvim-ts-context-commentstring',
-    },
     config = function()
-        -- Skip backwards compat routines and speed up loading
         vim.g.skip_ts_context_commentstring_module = true
 
         require('ts_context_commentstring').setup({
             enable_autocmd = false,
         })
 
-        require('Comment').setup({
-            padding = true,
-            sticky = true,
-            ignore = nil,
-            toggler = {
-                line = 'gcc',
-                block = 'gbc',
-            },
-            opleader = {
-                line = 'gc',
-                block = 'gb',
-            },
-            -- Use ts_context_commentstring to determine comment style
-            pre_hook = require('ts_context_commentstring.integrations.comment_nvim').create_pre_hook(),
-        })
+        -- Hook into native commenting so it uses treesitter-aware commentstring
+        local get_option = vim.filetype.get_option
+        vim.filetype.get_option = function(filetype, option)
+            return option == 'commentstring'
+                and require('ts_context_commentstring.internal').calculate_commentstring()
+                or get_option(filetype, option)
+        end
     end,
 }

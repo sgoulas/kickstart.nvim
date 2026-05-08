@@ -1,4 +1,4 @@
--- Snacks.nvim - only image and lazygit modules enabled
+-- Snacks.nvim - image, lazygit, and scroll modules enabled
 return {
   'folke/snacks.nvim',
   lazy = false,
@@ -8,6 +8,7 @@ return {
     image = {},
     input = {},
     lazygit = {},
+    scroll = {},
     terminal = {},
   },
   keys = {
