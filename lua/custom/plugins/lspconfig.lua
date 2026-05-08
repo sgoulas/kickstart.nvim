@@ -17,8 +17,7 @@ return {
                     vim.keymap.set(mode, keys, func, { buffer = event.buf, desc = 'LSP: ' .. desc })
                 end
 
-                map('grn', vim.lsp.buf.rename, '[R]e[n]ame')
-                map('gra', vim.lsp.buf.code_action, '[G]oto Code [A]ction', { 'n', 'x' })
+                -- grn (rename) and gra (code action) are built-in defaults in Neovim 0.12
                 map('grr', function()
                     require('telescope.builtin').lsp_references({
                         file_ignore_patterns = { '%.test%.', '%.spec%.', '_test%.', '_spec%.' },
