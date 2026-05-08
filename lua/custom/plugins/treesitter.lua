@@ -3,5 +3,6 @@
 -- Keeping plugin only for parser installation via :TSInstall / :TSUpdate
 return {
     'nvim-treesitter/nvim-treesitter',
+    branch = 'main',
     build = ':TSUpdate',
 }
