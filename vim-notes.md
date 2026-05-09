@@ -25,7 +25,9 @@
 
 - `0`: move to line start
 - `$`: move to line end
-- `w` or `e`: move to next word (start or end respectively)
+- `w` or `e`: move to next word (start or end respectively). `b` is for moving back.
+- `W` or `E` or `B` moves to WORD instead of word.
+  - `word` vs `WORD` --> word treats punctuation as separators, WORD doesn't. So "doesn't" is 3 words but 1 WORD.
 - `b`: move to previous word (start)
 - `<n>w`: move to the start of the nth word from here
 - `<n>e`: move to the end of the nth word from here
