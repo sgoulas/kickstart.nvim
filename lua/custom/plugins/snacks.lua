@@ -8,7 +8,7 @@ return {
     image = {},
     input = {},
     lazygit = {},
-    scroll = {},
+
     terminal = {},
   },
   keys = {
