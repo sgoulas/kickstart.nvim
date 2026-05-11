@@ -60,9 +60,10 @@ const result = calculateTotal(price, tax);
 - `ctrl-g`: show file line
 - `<n>k` / `<n>j`: move up/down by `<n>` lines (useful with `:se relativenumber`)
 - `zz`: center current line on screen (useful after jumps) (baked inside n/N)
+- `)` / `(` navigate sentences.
 - `%`: while on a bracket/parenthesis, jump to matching pair
 - `}` / `{` move 1 paragraph forward. Works nicely with code that is separated by blank lines. Works with prefixed `count` as well, e.g `5}` jumps 5 paragraphs forward.
-- `)` / `(` navigate sentences.
+- `]]` / `[[` go to next / previous function, as defined by LSP.
 - `g;` / `g,` go to previous / next change
 
 ### Navigating Between Files & Tabs
@@ -135,6 +136,7 @@ const result = calculateTotal(price, tax);
 
 - `a`: add text after cursor (use `ea` to jump to end of next word and enter input mode)
 - `A`: go to end of line and enter input mode
+- `I` go to start of line and enter input mode, the opposite of `A`.
 - `o`: add new line below and enter input mode
 - `O`: add new line above and enter input mode
 - `<n>i [text] <Esc>`: write text `<n>` times
