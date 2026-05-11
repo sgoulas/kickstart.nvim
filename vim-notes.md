@@ -277,11 +277,11 @@ const result = calculateTotal(price, tax);
   - `C-x`: open horizontal split (`C-h` is used for scrolling left in the preview window)
   - `C-v`: open vertical split
   - `C-t`: open in new tab
-- With neo-tree:
-  - `S`: horizontal split
-  - `s`: vertical split
-  - `t`: tab
-  - `Enter`: open in current window
+- ~~With neo-tree:~~ removed due to too much trouble updating it with nvim `0.12`
+  ~- `S`: horizontal split~
+  ~- `s`: vertical split~
+  ~- `t`: tab~
+  ~- `Enter`: open in current window~
 
 ### Working with Multiple Files / Buffers
 
