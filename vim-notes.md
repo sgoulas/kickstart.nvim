@@ -378,7 +378,9 @@ keep in mind that there is a small performance hit when using this feature https
 - Find symbol in current document: `gs`
 - Find symbol in workspace: `gS`
 - Grep text in workspace: `<leader>sg` (escape special characters)
-- Show diagnostics: `<leader>sd`
+- Diagnostics:
+  - `<leader>sd`
+  - `<leader>q` toggle persistent diagnostics windows, `]d` and `[d` for jumping between diagnostics (puts you in edit mode, can make the change and jump to next, works for opened buffers)
 - Add blank line below: `<leader>o`
 - Add blank line above: `<leader>O`
 - Add line under cursor: `<leader>]`
