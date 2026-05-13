@@ -197,7 +197,7 @@ const result = calculateTotal(price, tax);
 
 - `ctrl-v`: visual block mode
 - Move cursor (e.g. `3j`) to select lines
-- `Shift-I`: insert at start of selected lines
+- `I`: insert at start of selected lines
 - Type text, then `Esc` to apply to all selected lines
 
 ## Deleting
