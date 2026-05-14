@@ -14,6 +14,9 @@ return {
         explorer = {
           layout = {
             preview = 'main',
+            layout = {
+              width = 0.25,
+            },
           },
           win = {
             list = {
