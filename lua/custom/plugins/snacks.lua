@@ -5,6 +5,8 @@ return {
   ---@type snacks.Config
   opts = {
     bigfile = {},
+    dashboard = {},
+    statuscolumn = {},
     image = {},
     input = {},
     lazygit = {},
