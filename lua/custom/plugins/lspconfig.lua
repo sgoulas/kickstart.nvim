@@ -95,6 +95,7 @@ return {
 
         local servers = {
             pyright = {},
+            cssls = {},
             somesass_ls = {},
             ts_ls = {
                 filetypes = {
