@@ -95,27 +95,12 @@ const result = calculateTotal(price, tax);
 - Resize/focus panes with mouse
 - `C-wo`: close all other windows
 
-### Tree Inspection & neo-tree
+### Tree Inspection
 
 - `:Ex`: open explorer in current window
 - `:Vex`: vertical window
 - `:Sex`: horizontal window
 - `:Tex`: new tab
-- `\`: toggle file explorer with current file
-- `<space>`: toggle node
-- `z`: close all nodes
-- `P`: toggle preview mode, `esc` to exit
-- `C-k` / `C-j`: up/down
-- `x`: horizontal split
-- `v`: vertical split
-- `t`: tab
-- `a`: add (directory if ends with `/`)
-- `A`: add directory
-- `r`: rename
-- `b`: rename base name only
-- `d`: delete
-- `y` / `p`: yank/paste
-- `R`: refresh tree
 
 ### Buffers
 
@@ -278,11 +263,6 @@ const result = calculateTotal(price, tax);
   - `C-v`: open vertical split
   - `C-t`: open in new tab
 - `:e #` to open last edited file (in case it was accidentally closed)
-- ~~With neo-tree:~~ removed due to too much trouble updating it with nvim `0.12`
-  ~- `S`: horizontal split~
-  ~- `s`: vertical split~
-  ~- `t`: tab~
-  ~- `Enter`: open in current window~
 
 ### Working with Multiple Files / Buffers
 
