@@ -34,6 +34,7 @@ return {
       sources = {
         explorer = {
           hidden = true,
+          ignored = true,
           layout = {
             preview = 'main',
             layout = {
