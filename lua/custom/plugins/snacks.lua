@@ -33,6 +33,7 @@ return {
     picker = {
       sources = {
         explorer = {
+          hidden = true,
           layout = {
             preview = 'main',
             layout = {
