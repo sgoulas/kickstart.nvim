@@ -5,7 +5,26 @@ return {
   ---@type snacks.Config
   opts = {
     bigfile = {},
-    dashboard = {},
+    dashboard = {
+      preset = {
+        header = [[
+        ⣿⣿⣿⣿⣯⣿⣿⠄⢠⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡟⠈⣿⣿⣿⣿⣿⣿⣆⠄
+        ⢻⣿⣿⣿⣾⣿⢿⣢⣞⣿⣿⣿⣿⣷⣶⣿⣯⣟⣿⢿⡇⢃⢻⣿⣿⣿⣿⣿⢿⡄
+        ⠄⢿⣿⣯⣏⣿⣿⣿⡟⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣷⣧⣾⢿⣮⣿⣿⣿⣿⣾⣷
+        ⠄⣈⣽⢾⣿⣿⣿⣟⣄⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣷⣝⣯⢿⣿⣿⣿⣿
+        ⣿⠟⣫⢸⣿⢿⣿⣾⣿⢿⣿⣿⢻⣿⣿⣿⢿⣿⣿⣿⢸⣿⣼⣿⣿⣿⣿⣿⣿⣿
+        ⡟⢸⣟⢸⣿⠸⣷⣝⢻⠘⣿⣿⢸⢿⣿⣿⠄⣿⣿⣿⡆⢿⣿⣼⣿⣿⣿⣿⢹⣿
+        ⡇⣿⡿⣿⣿⢟⠛⠛⠿⡢⢻⣿⣾⣞⣿⡏⠖⢸⣿⢣⣷⡸⣇⣿⣿⣿⢼⡿⣿⣿
+        ⣡⢿⡷⣿⣿⣾⣿⣷⣶⣮⣄⣿⣏⣸⣻⣃⠭⠄⠛⠙⠛⠳⠋⣿⣿⣇⠙⣿⢸⣿
+        ⠫⣿⣧⣿⣿⣿⣿⣿⣿⣿⣿⣿⠻⣿⣾⣿⣿⣿⣿⣿⣿⣿⣷⣿⣿⣹⢷⣿⡼⠋
+         ⠸⣿⣿⣿⣿⣿⣿⣿⣿⣿⣷⣦⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡟⣿⣿⣿  
+          ⢻⢹⣿⠸⣿⣿⣿⣿⣿⣷⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿⣼⣿⣿⣿⣿⡟  
+          ⠈⢸⣿ ⠙⢿⣿⣿⣹⣿⣿⣿⣿⣟⡃⣽⣿⣿⡟⠁⣿⣿⢻⣿⣿⢿  
+           ⠘⣿⡄  ⠙⢿⣿⣿⣾⣿⣷⣿⣿⣿⠟⠁  ⣿⣿⣾⣿⡟⣿  
+            ⢻⡇⠸⣆  ⠈⠻⣿⡿⠿⠛⠉    ⢸⣿⣇⣿⣿⢿⣿  
+         ]],
+      },
+    },
     statuscolumn = {},
     image = {},
     input = {},
@@ -27,7 +46,6 @@ return {
                 ['<cr>'] = 'none',
                 ['<C-j>'] = 'preview_scroll_down',
                 ['<C-k>'] = 'preview_scroll_up',
-
               },
             },
           },
@@ -37,23 +55,52 @@ return {
     terminal = {},
   },
   keys = {
-    { '\\', function()
-      local pickers = Snacks.picker.get({ source = 'explorer' })
-      if #pickers == 0 then
-        Snacks.explorer()
-      else
-        local picker = pickers[1]
-        local list_win = picker.layout.wins and picker.layout.wins.list
-        if list_win and list_win.win == vim.api.nvim_get_current_win() then
-          picker:close()
+    {
+      '\\',
+      function()
+        local pickers = Snacks.picker.get { source = 'explorer' }
+        if #pickers == 0 then
+          Snacks.explorer()
         else
-          picker:focus('list')
+          local picker = pickers[1]
+          local list_win = picker.layout.wins and picker.layout.wins.list
+          if list_win and list_win.win == vim.api.nvim_get_current_win() then
+            picker:close()
+          else
+            picker:focus 'list'
+          end
         end
-      end
-    end, desc = 'File explorer' },
-    { '<leader>lg', function() Snacks.lazygit() end, desc = 'Open Lazygit' },
-    { '<leader>la', function() Snacks.lazygit.log() end, desc = 'Lazygit log view' },
-    { '<leader>lf', function() Snacks.lazygit.log_file() end, desc = 'Lazygit log current file' },
-    { '<C-/>', function() Snacks.terminal.toggle() end, desc = 'Toggle terminal', mode = { 'n', 't' } },
+      end,
+      desc = 'File explorer',
+    },
+    {
+      '<leader>lg',
+      function()
+        Snacks.lazygit()
+      end,
+      desc = 'Open Lazygit',
+    },
+    {
+      '<leader>la',
+      function()
+        Snacks.lazygit.log()
+      end,
+      desc = 'Lazygit log view',
+    },
+    {
+      '<leader>lf',
+      function()
+        Snacks.lazygit.log_file()
+      end,
+      desc = 'Lazygit log current file',
+    },
+    {
+      '<C-/>',
+      function()
+        Snacks.terminal.toggle()
+      end,
+      desc = 'Toggle terminal',
+      mode = { 'n', 't' },
+    },
   },
 }
