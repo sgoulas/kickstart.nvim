@@ -69,7 +69,7 @@ const result = calculateTotal(price, tax);
 ### Navigating Between Files & Tabs
 
 - `<leader>d[vth]`: open [d]efinition in new [v]irtual split, [h]orizontal split or [t]ab
-- harpoon2 plugin, check key mappings for `harpoon`
+- `ctrl+^` switch between current and last edited file.
 - marks
   - `m<lower case letter>` add mark to current file
   - `m<capital case letter>` add mark that persists between files and nvim sessions (even when on different tabs)
