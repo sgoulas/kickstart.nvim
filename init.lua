@@ -38,6 +38,6 @@ require('lazy').setup({
 })
 
 -- Set default colorscheme
-vim.cmd.colorscheme 'tokyonight'
+vim.cmd.colorscheme 'ef-deuteranopia-light'
 
 -- vim: ts=2 sts=2 sw=2 et
