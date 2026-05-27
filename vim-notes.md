@@ -25,6 +25,7 @@
 
 - `0`: move to line start
 - `$`: move to line end
+- `^`: move to first non blank character in line
 - `w` or `e`: move to next word (start or end respectively). `b` is for moving back.
 - `W` or `E` or `B` moves to WORD instead of word.
   - `word` vs `WORD` --> word treats punctuation as separators, WORD doesn't. So "doesn't" is 3 words but 1 WORD.
@@ -101,6 +102,9 @@ const result = calculateTotal(price, tax);
 - `:Vex`: vertical window
 - `:Sex`: horizontal window
 - `:Tex`: new tab
+- `:Lex`: open explorer on the side
+
+_note_: it may be worth to check out the native explorer again in the future, if not to replace existing explorer plugins at least to take inspiration from its keybindings. `-` to go up one directory is excellent.
 
 ### Buffers
 
