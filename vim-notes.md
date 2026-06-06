@@ -75,7 +75,8 @@ const result = calculateTotal(price, tax);
   - `m<lower case letter>` add mark to current file
   - `m<capital case letter>` add mark that persists between files and nvim sessions (even when on different tabs)
   - open marks with `'` and navigate pressing the appropriate char.
-  - `:delmarks!` delete all marks
+  - `:delmarks!` delete all local marks
+  - `:delmarks A-Z` delete all global marks (A-Z though, not numbers)
 - `<n>gt`: go to specific tab number
 - `gt`: next tab
 - `gT`: previous tab
@@ -266,6 +267,9 @@ _note_: it may be worth to check out the native explorer again in the future, if
   - `C-x`: open horizontal split (`C-h` is used for scrolling left in the preview window)
   - `C-v`: open vertical split
   - `C-t`: open in new tab
+- with snacks:
+  - `C-s` for horizontal
+  - `C-v` for vertical
 - `:e #` to open last edited file (in case it was accidentally closed)
 
 ### Working with Multiple Files / Buffers
