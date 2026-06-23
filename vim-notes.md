@@ -156,6 +156,7 @@ _note_: it may be worth to check out the native explorer again in the future, if
 - `/`: search forwards
 - `?`: search backwards
 - `n` / `N`: next/previous match (`n` for `/` is down, for `?` is up)
+  - Based on current vim options the search is case insensitive unless you include at least one capital case letter in which case it becomes case sensitive.
 - `<leader>/`: fzf in current file
 - `<leader>s/`: fzf in open files
 - `<leader>sw`: search word under cursor across project
