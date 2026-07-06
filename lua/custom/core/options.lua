@@ -28,6 +28,14 @@ end)
 -- Enable break indent
 vim.o.breakindent = true
 
+-- Keep code buffers unwrapped by default
+vim.o.wrap = false
+vim.o.linebreak = false
+
+-- Don't hard-wrap or show a fixed ruler globally
+vim.o.textwidth = 0
+vim.o.colorcolumn = ''
+
 -- Save undo history
 vim.o.undofile = true
 

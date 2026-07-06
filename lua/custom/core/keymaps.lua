@@ -40,6 +40,24 @@ vim.keymap.set('n', '<leader>cp', ':let @+ = expand("%")<CR>', { desc = 'Copy fi
 -- Paste without yanking in visual mode
 vim.keymap.set('x', '<leader>p', '"_dP', { desc = 'Paste without yanking' })
 
+-- Toggle prose-style wrapping and line width in the current buffer/window
+vim.keymap.set('n', '<leader>tw', function()
+    local enabled = not vim.wo.wrap
+
+    vim.opt_local.wrap = enabled
+    vim.opt_local.linebreak = enabled
+
+    if enabled then
+        vim.opt_local.textwidth = 80
+        vim.opt_local.colorcolumn = '81'
+    else
+        vim.opt_local.textwidth = 0
+        vim.opt_local.colorcolumn = ''
+    end
+
+    vim.notify('toggled prose settings')
+end, { desc = '[t]oggle prose [w]rapping (80 cols)' })
+
 -- LSP hover with red border
 vim.keymap.set('n', 'K', function()
     vim.lsp.buf.hover({
