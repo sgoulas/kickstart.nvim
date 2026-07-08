@@ -340,7 +340,7 @@ vim.opt.spell = true
 vim.opt.spelllang = { "en", "el" }
 ```
 
-keep in mind that there is a small performance hit when using this feature https://neovim.io/doc/user/spell.html#_performance.
+Keep in mind that there is a small performance hit when using this feature https://neovim.io/doc/user/spell.html#_performance.
 
 ### Working with LSPs
 
