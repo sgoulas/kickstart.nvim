@@ -97,7 +97,7 @@ return {
             pyright = {},
             cssls = {},
             somesass_ls = {},
-            ts_ls = {
+            tsgo = {
                 filetypes = {
                     'javascript',
                     'javascriptreact',
@@ -106,6 +106,21 @@ return {
                     'typescriptreact',
                     'typescript.tsx',
                     'mjs',
+                },
+                settings = {
+                    typescript = {
+                        inlayHints = {
+                            enumMemberValues = { enabled = true },
+                            functionLikeReturnTypes = { enabled = false },
+                            parameterNames = {
+                                enabled = 'literals',
+                                suppressWhenArgumentMatchesName = true,
+                            },
+                            parameterTypes = { enabled = true },
+                            propertyDeclarationTypes = { enabled = true },
+                            variableTypes = { enabled = false },
+                        },
+                    },
                 },
             },
             lua_ls = {
@@ -136,13 +151,17 @@ return {
         require('mason-lspconfig').setup {
             ensure_installed = {},
             automatic_installation = false,
-            handlers = {
-                function(server_name)
-                    local server = servers[server_name] or {}
-                    server.capabilities = vim.tbl_deep_extend('force', {}, capabilities, server.capabilities or {})
-                    require('lspconfig')[server_name].setup(server)
-                end,
-            },
         }
+
+        for server_name, server in pairs(servers) do
+            server.capabilities = vim.tbl_deep_extend('force', {}, capabilities, server.capabilities or {})
+
+            if vim.lsp.config and vim.lsp.enable then
+                vim.lsp.config(server_name, server)
+                vim.lsp.enable(server_name)
+            else
+                require('lspconfig')[server_name].setup(server)
+            end
+        end
     end,
 }
