@@ -14,8 +14,8 @@
 
 ## Todo
 
-- check vim motions in zed, this is probably the long term play. Probably
-- add `:help motion.tx` somewhere in this file, also https://github.com/nvim-neo-tree/neo-tree.nvim/blob/main/doc/neo-tree.txt
+- between snacks file explorer and telescope there are different keybindings for
+  opening files in split views. Unify them for consistency.
 
 ---
 
