@@ -19,6 +19,10 @@
 
 ---
 
+## meta
+
+- `:restart` restarts the editor. You don't have to exit and re-enter.
+
 ## Navigating
 
 ### Navigating in a Line
