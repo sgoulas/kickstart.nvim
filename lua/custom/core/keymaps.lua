@@ -35,43 +35,47 @@ vim.keymap.set('n', 'n', 'nzz')
 vim.keymap.set('n', 'N', 'Nzz')
 
 -- Copy file path
-vim.keymap.set('n', '<leader>cp', ':let @+ = expand("%")<CR>', { desc = 'Copy file path' })
+vim.keymap.set('n', '<leader>cp', function()
+  local path = vim.fn.expand '%:.'
+  vim.fn.setreg('+', path)
+  vim.notify('Copied: ' .. path)
+end, { desc = 'Copy relative path to clipboard' })
 
 -- Paste without yanking in visual mode
 vim.keymap.set('x', '<leader>p', '"_dP', { desc = 'Paste without yanking' })
 
 -- Toggle prose-style wrapping and line width in the current buffer/window
 vim.keymap.set('n', '<leader>tw', function()
-    local enabled = not vim.wo.wrap
+  local enabled = not vim.wo.wrap
 
-    vim.opt_local.wrap = enabled
-    vim.opt_local.linebreak = enabled
+  vim.opt_local.wrap = enabled
+  vim.opt_local.linebreak = enabled
 
-    if enabled then
-        vim.opt_local.textwidth = 80
-        vim.opt_local.colorcolumn = '81'
-    else
-        vim.opt_local.textwidth = 0
-        vim.opt_local.colorcolumn = ''
-    end
+  if enabled then
+    vim.opt_local.textwidth = 80
+    vim.opt_local.colorcolumn = '81'
+  else
+    vim.opt_local.textwidth = 0
+    vim.opt_local.colorcolumn = ''
+  end
 
-    vim.notify('toggled prose settings')
+  vim.notify 'toggled prose settings'
 end, { desc = '[t]oggle prose [w]rapping (80 cols)' })
 
 -- LSP hover with red border
 vim.keymap.set('n', 'K', function()
-    vim.lsp.buf.hover({
-        border = {
-            { '╭', 'RedBorder' },
-            { '─', 'RedBorder' },
-            { '╮', 'RedBorder' },
-            { '│', 'RedBorder' },
-            { '╯', 'RedBorder' },
-            { '─', 'RedBorder' },
-            { '╰', 'RedBorder' },
-            { '│', 'RedBorder' },
-        },
-    })
+  vim.lsp.buf.hover {
+    border = {
+      { '╭', 'RedBorder' },
+      { '─', 'RedBorder' },
+      { '╮', 'RedBorder' },
+      { '│', 'RedBorder' },
+      { '╯', 'RedBorder' },
+      { '─', 'RedBorder' },
+      { '╰', 'RedBorder' },
+      { '│', 'RedBorder' },
+    },
+  }
 end, { desc = 'LSP Hover' })
 vim.api.nvim_set_hl(0, 'RedBorder', { fg = '#ff0000' })
 

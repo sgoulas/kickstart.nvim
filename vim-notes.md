@@ -354,6 +354,7 @@ Keep in mind that there is a small performance hit when using this feature https
 
 ### Working with Code
 
+- `gra`: to apply code action, e.g when an import is missing but the LSP knows where to find it.
 - `<leader>q`: opens diagnostics, can navigate through them and press enter to travel to them.
 - Comment line: `gcc`
 - Comment block: `gc` while having selected multiple lines in visual mode.
