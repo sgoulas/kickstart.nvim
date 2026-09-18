@@ -104,5 +104,12 @@ return {
       desc = 'Toggle terminal',
       mode = { 'n', 't' },
     },
+    {
+      '<leader>du',
+      function()
+        Snacks.scratch { ft = 'markdown' }
+      end,
+      desc = 'Toggle dumpyard scratch buffer',
+    },
   },
 }
