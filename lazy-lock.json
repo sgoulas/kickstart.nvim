@@ -5,7 +5,6 @@
   "boundary.nvim": { "branch": "release", "commit": "adc155c65d2bfe634d29933c5c8e36b249ff5009" },
   "carbon-now.nvim": { "branch": "main", "commit": "2440d007633a5d436ebc9d2b5ef74e4fddd83f15" },
   "conform.nvim": { "branch": "master", "commit": "016802de402556da54c36bd7359b441266b01cdd" },
-  "diffview.nvim": { "branch": "main", "commit": "4516612fe98ff56ae0415a259ff6361a89419b0a" },
   "fidget.nvim": { "branch": "main", "commit": "9e0201673e08e997e7cf52afca5565c70bd117f3" },
   "gitsigns.nvim": { "branch": "main", "commit": "fd36f038e52ad8409fbf9926ae4a0a514cca04d8" },
   "guess-indent.nvim": { "branch": "main", "commit": "84a4987ff36798c2fc1169cbaff67960aed9776f" },
