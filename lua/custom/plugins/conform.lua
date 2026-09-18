@@ -15,6 +15,11 @@ return {
     },
     opts = {
         notify_on_error = false,
+        formatters = {
+            oxfmt = {
+                require_cwd = true,
+            },
+        },
         format_on_save = function(bufnr)
             local disable_filetypes = { c = true, cpp = true }
             if disable_filetypes[vim.bo[bufnr].filetype] then
@@ -28,18 +33,18 @@ return {
         end,
         formatters_by_ft = {
             lua = { 'stylua' },
-            markdown = { 'prettier' },
-            javascript = { 'prettier' },
-            javascriptreact = { 'prettier' },
-            typescript = { 'prettier' },
-            typescriptreact = { 'prettier' },
-            json = { 'prettier' },
-            jsonc = { 'prettier' },
-            html = { 'prettier' },
-            css = { 'prettier' },
-            scss = { 'prettier' },
-            yaml = { 'prettier' },
-            graphql = { 'prettier' },
+            markdown = { 'oxfmt', 'prettier', stop_after_first = true },
+            javascript = { 'oxfmt', 'prettier', stop_after_first = true },
+            javascriptreact = { 'oxfmt', 'prettier', stop_after_first = true },
+            typescript = { 'oxfmt', 'prettier', stop_after_first = true },
+            typescriptreact = { 'oxfmt', 'prettier', stop_after_first = true },
+            json = { 'oxfmt', 'prettier', stop_after_first = true },
+            jsonc = { 'oxfmt', 'prettier', stop_after_first = true },
+            html = { 'oxfmt', 'prettier', stop_after_first = true },
+            css = { 'oxfmt', 'prettier', stop_after_first = true },
+            scss = { 'oxfmt', 'prettier', stop_after_first = true },
+            yaml = { 'oxfmt', 'prettier', stop_after_first = true },
+            graphql = { 'oxfmt', 'prettier', stop_after_first = true },
         },
     },
 }

@@ -97,7 +97,8 @@ return {
             pyright = {},
             cssls = {},
             somesass_ls = {},
-            tsgo = {
+            oxlint = {},
+            tsc = {
                 filetypes = {
                     'javascript',
                     'javascriptreact',
@@ -108,7 +109,7 @@ return {
                     'mjs',
                 },
                 settings = {
-                    typescript = {
+                    ['js/ts'] = {
                         inlayHints = {
                             enumMemberValues = { enabled = true },
                             functionLikeReturnTypes = { enabled = false },
@@ -144,6 +145,7 @@ return {
         local ensure_installed = vim.tbl_keys(servers or {})
         vim.list_extend(ensure_installed, {
             'stylua',
+            'oxfmt',
             'prettier',
         })
         require('mason-tool-installer').setup { ensure_installed = ensure_installed }
@@ -151,6 +153,7 @@ return {
         require('mason-lspconfig').setup {
             ensure_installed = {},
             automatic_installation = false,
+            automatic_enable = false,
         }
 
         for server_name, server in pairs(servers) do
