@@ -26,3 +26,28 @@ vim.api.nvim_create_autocmd({ 'FileType' }, {
         end
     end,
 })
+
+-- Markdown: gcc toggles ~~strikethrough~~ on the line instead of commenting it.
+-- Leading indent, list markers and task checkboxes stay outside the tildes.
+vim.api.nvim_create_autocmd('FileType', {
+    desc = 'Markdown gcc toggles strikethrough',
+    group = vim.api.nvim_create_augroup('markdown-strikethrough', { clear = true }),
+    pattern = 'markdown',
+    callback = function(args)
+        vim.keymap.set('n', 'gcc', function()
+            local start = vim.api.nvim_win_get_cursor(0)[1] - 1
+            local lines = vim.api.nvim_buf_get_lines(0, start, start + vim.v.count1, false)
+            for i, line in ipairs(lines) do
+                local prefix, text = line:match('^(%s*[-*+]%s+%[.%]%s+)(.*)$')
+                if not prefix then prefix, text = line:match('^(%s*[-*+]%s+)(.*)$') end
+                if not prefix then prefix, text = line:match('^(%s*%d+[.)]%s+)(.*)$') end
+                if not prefix then prefix, text = line:match('^(%s*)(.*)$') end
+                if text ~= '' then
+                    local inner = text:match('^~~(.*)~~$')
+                    lines[i] = prefix .. (inner or ('~~' .. text .. '~~'))
+                end
+            end
+            vim.api.nvim_buf_set_lines(0, start, start + #lines, false, lines)
+        end, { buffer = args.buf, desc = 'Toggle strikethrough on line' })
+    end,
+})
