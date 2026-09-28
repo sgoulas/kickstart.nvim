@@ -1,9 +1,9 @@
 -- Snacks.nvim - image, lazygit, and scroll modules enabled
 
--- Dashboard header: dashboard/anael.png drawn as a real image (kitty graphics
+-- Dashboard header: dashboard/anael_2.png drawn as a real image (kitty graphics
 -- protocol). Terminals without image support get the braille preset header.
-local image_file = vim.fn.stdpath 'config' .. '/dashboard/anael.png'
-local image_max = { width = 32, height = 16 }
+local image_file = vim.fn.stdpath 'config' .. '/dashboard/anael_2.png'
+local image_max = { width = 60, height = 12 }
 
 -- Reserve blank lines in the dashboard and overlay the image on them
 local function dashboard_header(dash)
