@@ -25,7 +25,7 @@ return {
                 end, '[G]oto [R]eferences (no tests)')
                 map('grR', require('telescope.builtin').lsp_references, '[G]oto [R]eferences (all)')
                 map('gri', require('telescope.builtin').lsp_implementations, '[G]oto [I]mplementation')
-                map('grd', require('telescope.builtin').lsp_definitions, '[G]oto [D]efinition')
+                map('grd', vim.lsp.buf.definition, '[G]oto [D]efinition')
                 map('grD', vim.lsp.buf.declaration, '[G]oto [D]eclaration')
                 map('gs', require('telescope.builtin').lsp_document_symbols, 'Open Document Symbols')
                 map('gS', require('telescope.builtin').lsp_dynamic_workspace_symbols, 'Open Workspace Symbols')

@@ -23,9 +23,9 @@ vim.keymap.set('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower win
 vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
 
 -- Jump navigation with leader key
-vim.keymap.set('n', '<leader>]', '<C-]>', { desc = 'Jump to definition' })
-vim.keymap.set('n', '<leader>o', '<C-o>', { desc = 'Jump out' })
-vim.keymap.set('n', '<leader>i', '<C-i>', { desc = 'Jump in' })
+vim.keymap.set('n', '<leader>]', '<C-]>', { desc = 'Go down: definition (push tag stack)' })
+vim.keymap.set('n', '<leader>[', '<C-t>', { desc = 'Go up: pop tag stack' })
+vim.keymap.set('n', '<BS>', '<C-^>', { desc = 'Alternate (previous) buffer' })
 
 -- Create a code snippet in visual mode
 vim.keymap.set('v', '<leader>cn', ':CarbonNow<CR>', { silent = true })

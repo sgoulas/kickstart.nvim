@@ -55,6 +55,7 @@ const result = calculateTotal(price, tax);
 
 ### Navigating in a File
 
+- `''` go back to previous location before jump
 - `s{char}{char}` + `flag` jump anywhere with leap.nvim plugin.
 - `H`, `M`, `L`: go to high, middle, low position in the screen
 - `gm`: go to the middle of the current line (may need virtual edit)
@@ -375,9 +376,8 @@ Keep in mind that there is a small performance hit when using this feature https
 - Diagnostics:
   - `<leader>sd`
   - `<leader>q` toggle persistent diagnostics window, `]d` and `[d` for jumping between diagnostics
-- Add blank line below: `<leader>o`
-- Add blank line above: `<leader>O`
-- Add line under cursor: `<leader>]`
+- Add blank line below: `o`
+- Add blank line above: `O`
 - Select inside/around pairs: `vi(`, `va(`, `vi{`, `va{`, `vi[`, `va[`, `yi(`, `ya(`, etc.
 - Select inside/around quotes: `vi'`, `va'`, `vi"`, `va"`
 
