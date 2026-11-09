@@ -76,6 +76,7 @@ const result = calculateTotal(price, tax);
 
 - `<leader>d[vth]`: open [d]efinition in new [v]irtual split, [h]orizontal split or [t]ab
 - `ctrl+^` switch between current and last edited file.
+- `backspace` switch between current and previous buffer
 - marks
   - `m<lower case letter>` add mark to current file
   - `m<capital case letter>` add mark that persists between files and nvim sessions (even when on different tabs)
@@ -135,8 +136,6 @@ _note_: it may be worth to check out the native explorer again in the future, if
 - `o`: add new line below and enter input mode
 - `O`: add new line above and enter input mode
 - `<n>i [text] <Esc>`: write text `<n>` times
-- `<leader>o`: add blank line below current line without entering input mode
-- `<leader>O`: add blank line above current line without entering input mode
 
 ### Copying Text
 
@@ -378,6 +377,7 @@ Keep in mind that there is a small performance hit when using this feature https
   - `<leader>q` toggle persistent diagnostics window, `]d` and `[d` for jumping between diagnostics
 - Add blank line below: `o`
 - Add blank line above: `O`
+- Select block --> `vab` / `vib` much faster than typing the type of block (`(,{,[` etc)
 - Select inside/around pairs: `vi(`, `va(`, `vi{`, `va{`, `vi[`, `va[`, `yi(`, `ya(`, etc.
 - Select inside/around quotes: `vi'`, `va'`, `vi"`, `va"`
 

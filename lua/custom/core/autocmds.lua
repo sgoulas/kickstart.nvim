@@ -27,6 +27,26 @@ vim.api.nvim_create_autocmd({ 'FileType' }, {
     end,
 })
 
+-- Prose filetypes: soft-wrap long lines at the window edge, break at word
+-- boundaries, and indent wrapped list items under their text.
+vim.api.nvim_create_autocmd('FileType', {
+    desc = 'Soft wrap for prose filetypes',
+    group = vim.api.nvim_create_augroup('prose-soft-wrap', { clear = true }),
+    pattern = { 'markdown', 'text', 'gitcommit' },
+    callback = function(args)
+        vim.opt_local.wrap = true
+        vim.opt_local.linebreak = true
+        vim.opt_local.breakindent = true
+        vim.opt_local.breakindentopt = 'list:-1'
+        -- Move by screen line when no count is given, so 5j still jumps real lines
+        for _, key in ipairs({ 'j', 'k' }) do
+            vim.keymap.set({ 'n', 'x' }, key, function()
+                return vim.v.count == 0 and 'g' .. key or key
+            end, { buffer = args.buf, expr = true })
+        end
+    end,
+})
+
 -- Markdown: gcc toggles ~~strikethrough~~ on the line instead of commenting it.
 -- Leading indent, list markers and task checkboxes stay outside the tildes.
 vim.api.nvim_create_autocmd('FileType', {
