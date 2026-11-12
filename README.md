@@ -29,5 +29,6 @@ The target platform is macOS.
 | `dashboard/` | Images for the Snacks dashboard |
 | `spell/` | Spell files for English and Greek |
 | `AGENTS.md` | The tools to install on a machine, and the checks after the install |
+| `skills/` | Claude Code skills, linked into `~/.claude/skills/` |
 | `vim-notes.md` | My notes about Vim commands |
 | `tmux.md` | My notes about `tmux` |

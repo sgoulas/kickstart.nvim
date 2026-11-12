@@ -27,6 +27,7 @@ Each of these steps needs a tool from the next section, so install that section 
 | `lazygit` | `brew install lazygit` | `<leader>lg`, `<leader>la`, `<leader>lf` |
 | Node.js and `npm` | `brew install fnm`, then `fnm install --lts` | Mason packages (`pyright`, `cssls`, `somesass_ls`, `oxlint`, `oxfmt`, `prettier`) |
 | `mmdc` (mermaid-cli) | `npm install -g @mermaid-js/mermaid-cli` | Snacks image: mermaid diagrams in markdown |
+| `presenterm` | `brew install presenterm` | terminal slides, see `skills/presenterm/SKILL.md` |
 | ImageMagick | `brew install imagemagick` | Snacks image: conversion of non-PNG images |
 | A Nerd Font | `brew install --cask font-jetbrains-mono-nerd-font` | icons, because `options.lua` sets `vim.g.have_nerd_font = true` |
 | Ghostty | `brew install --cask ghostty` | kitty graphics protocol for the dashboard image and the diagrams |
@@ -42,12 +43,21 @@ These tools are optional:
 2. If you run Neovim inside `tmux`, add `set -gq allow-passthrough on` to `~/.tmux.conf`. Without it, `tmux` blocks the image protocol, and no image shows.
 3. If you do not use Ghostty, use a terminal with the kitty graphics protocol, for example kitty or WezTerm. In other terminals the dashboard shows the braille header and diagrams do not render.
 
+## Claude skills
+
+The `skills/` folder holds Claude Code skills that belong with this configuration. Claude Code finds a skill only under `~/.claude/skills/`. Link each skill folder there:
+
+```sh
+ln -s ~/.config/nvim/skills/presenterm ~/.claude/skills/presenterm
+```
+
 ## Procedure
 
 1. Install the tools in the table above.
-2. Start `nvim` and wait until `lazy.nvim` installs the plugins.
-3. Quit `nvim` and start it again.
-4. Run `:Lazy` and make sure that no plugin shows a build error.
-5. Run `:Mason` and make sure that all packages show as installed.
-6. Run `:checkhealth snacks` and examine the `Snacks.image` and `Snacks.lazygit` sections.
-7. Open a markdown file that contains a `mermaid` code block, and make sure that the diagram shows under the block.
+2. Link the skills as the "Claude skills" section shows.
+3. Start `nvim` and wait until `lazy.nvim` installs the plugins.
+4. Quit `nvim` and start it again.
+5. Run `:Lazy` and make sure that no plugin shows a build error.
+6. Run `:Mason` and make sure that all packages show as installed.
+7. Run `:checkhealth snacks` and examine the `Snacks.image` and `Snacks.lazygit` sections.
+8. Open a markdown file that contains a `mermaid` code block, and make sure that the diagram shows under the block.
